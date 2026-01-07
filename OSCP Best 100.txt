@@ -1,0 +1,100 @@
+1::You run a default nmap scan and find no open ports. What is the BEST next action?::Assume host is down::Run full TCP port scan with -p-::Switch to UDP scanning only::Move to another target::B::Default scans miss non-standard ports commonly used in OSCP labs.
+2::A web app returns different error messages for invalid usernames and passwords. What does this indicate?::SQL injection::Username enumeration vulnerability::XSS vulnerability::CSRF vulnerability::B::Distinct error messages leak authentication logic.
+3::You find SMB with anonymous access. What should you enumerate FIRST?::Exploit EternalBlue::List shares and permissions::Bruteforce credentials::Disable SMB signing::B::Anonymous shares often expose sensitive data.
+4::Why is service version accuracy critical?::It speeds scanning::It determines exploit compatibility::It hides activity::It replaces enumeration::B::Wrong versions lead to failed exploitation.
+5::A directory returns HTTP 403. What does this confirm?::Directory does not exist::Directory exists but is restricted::Firewall interference::Server error::B::403 confirms existence.
+6::You find an exposed .bak file. What is the MOST likely risk?::DoS::Source code or credential disclosure::Firewall bypass::Privilege escalation automatically::B::Backup files often contain sensitive data.
+7::Why avoid automated vulnerability scanners in OSCP?::They are banned::They miss logic flaws and add noise::They are slow::They hide vulnerabilities::B::OSCP values manual analysis.
+8::An exploit requires authentication. What must be done FIRST?::Modify exploit code::Obtain valid credentials::Run as root::Disable firewall::B::Authenticated exploits require access first.
+9::Your reverse shell drops immediately. What should you check?::Firewall logs::Payload architecture and stability::Reboot target::Exploit CVE::B::Architecture mismatch commonly breaks shells.
+10::Why stabilize a shell early?::It hides activity::Tools and escalation require TTY::It encrypts traffic::It avoids detection::B::Many commands require proper TTY.
+11::You see a SUID binary calling system(). What risk exists?::Buffer overflow only::PATH hijacking::SQL injection::Kernel panic::B::system() respects PATH.
+12::sudo -l shows NOPASSWD on tar. What does this allow?::Nothing::Command execution as root::Kernel exploit::Password cracking::B::tar can execute commands.
+13::Why avoid kernel exploits unless necessary?::They are illegal::They may crash the system::They are patched::They require internet::B::Crashes risk losing exam progress.
+14::A Windows service binary path is writable. What is the impact?::No risk::Replace binary for SYSTEM execution::Firewall bypass::Registry corruption::B::Writable service binaries allow escalation.
+15::What does SeImpersonatePrivilege enable?::File read::Token impersonation attacks::Firewall bypass::Memory dump only::B::Used in many Windows privesc attacks.
+16::Why check scheduled tasks?::They hide malware::They may execute as SYSTEM::They encrypt logs::They block execution::B::Writable tasks are escalation paths.
+17::You find Docker socket access. What does this mean?::Read-only access::Root-equivalent access::No impact::Container escape impossible::B::Docker socket = root.
+18::What does PATH hijacking require?::Kernel access::Writable directory in PATH::Firewall bypass::Password reuse::B::PATH order controls execution.
+19::Why enumerate groups?::They hide users::Groups grant extra privileges::They encrypt permissions::They block access::B::Groups define rights.
+20::A cron job runs a writable script as root. What does this allow?::DoS::Privilege escalation::Network scanning::Log deletion::B::Classic escalation vector.
+21::You dump hashes post-exploitation. Why?::For fun::Password reuse across systems::To crash system::To bypass firewall::B::Reuse enables lateral movement.
+22::What is pivoting?::Privilege escalation::Routing traffic through a compromised host::Persistence::Log clearing::B::Pivoting bypasses segmentation.
+23::Why avoid aggressive internal scans?::They are illegal::They may disrupt services::They hide activity::They slow tools::B::Stability matters.
+24::You find SSH keys. What is the FIRST use?::Crack passphrase::Attempt access to other hosts::Delete keys::Replace keys::B::Keys enable lateral movement.
+25::Why check bash history?::It is empty::It may contain credentials::It encrypts commands::It hides activity::B::Users leak secrets.
+26::What does dumping LSASS provide?::Kernel version::Windows credentials::Firewall rules::Network routes::B::LSASS stores creds.
+27::Why document discovered credentials?::Optional::Supports reproducibility and reporting::Hides activity::Blocks access::B::Documentation is required.
+28::What does port forwarding allow?::Kernel exploit::Access to internal services::Password cracking::Persistence::B::Exposes internal ports.
+29::Why avoid clearing logs?::It is illegal::Logs may be required for report::It hides activity::It blocks escalation::B::OSCP requires transparency.
+30::What is lateral movement?::Escalation::Moving between hosts::Persistence::Cleanup::B::Movement expands access.
+31::Why identify antivirus presence?::Disable it::Choose compatible techniques::It hides exploits::It replaces enumeration::B::Defense awareness matters.
+32::What does shared credential usage imply?::No risk::Widespread access::Kernel crash::Network flood::B::Shared creds multiply access.
+33::Why inspect config files?::They are useless::They may store plaintext secrets::They encrypt configs::They hide activity::B::Configs leak creds.
+34::What does exploiting weak ACLs allow?::Read-only access::Modification or execution::Kernel exploit::Firewall bypass::B::ACLs define permissions.
+35::Why check mounted shares?::They hide files::They expose sensitive data::They encrypt storage::They block pivoting::B::Shares often store secrets.
+36::Why enumerate internal DNS?::It replaces routing::It reveals infrastructure::It hides activity::It blocks scanning::B::DNS maps networks.
+37::What does abusing trust relationships allow?::Privilege escalation only::Access to additional systems::Kernel panic::Firewall bypass::B::Trust expands attack surface.
+38::Why validate shell stability before pivoting?::Optional::Unstable shells break pivots::It hides activity::It blocks escalation::B::Stability is critical.
+39::What does exploiting backup systems allow?::Nothing::Access to historical sensitive data::Kernel crash::Network flood::B::Backups contain secrets.
+40::Why gather proof-of-access evidence?::For fun::Required for scoring and report::It hides activity::It blocks pivoting::B::Proof is required.
+41::A tool fails silently. What should you do?::Retry repeatedly::Review errors and assumptions::Switch targets::Reboot host::B::Silent failures indicate wrong assumptions.
+42::Why test exploits incrementally?::Waste time::Isolate failure causes::Hide activity::Avoid reporting::B::Incremental testing improves reliability.
+43::Why prefer reverse shells over bind shells?::They escalate privileges::They bypass inbound firewall rules::They hide traffic::They are faster::B::Outbound connections are easier.
+44::What does exploiting unquoted service paths allow?::Nothing::Binary hijacking::Kernel panic::Firewall bypass::B::Spaces cause execution ambiguity.
+45::Why check sudo secure_path?::It hides commands::It limits PATH hijacking::It encrypts sudo::It blocks escalation::B::secure_path affects exploits.
+46::What does harvesting browser creds allow?::Kernel access::Reuse across apps and systems::Firewall bypass::Network scan::B::Browsers store reusable creds.
+47::Why enumerate CI/CD pipelines?::They hide code::They contain secrets and automation access::They encrypt builds::They block access::B::Pipelines store creds.
+48::Why avoid rootkits?::Illegal::Risk instability and exam failure::They hide activity::They speed access::B::OSCP values stability.
+49::What does exploiting writable systemd services allow?::Nothing::Root command execution::Kernel crash::Firewall bypass::B::systemd runs as root.
+50::Why check SSH config?::It is empty::It may allow root login or forwarding::It encrypts traffic::It hides access::B::Config weakens security.
+51::What does exploiting weak MFA allow?::Nothing::Authentication bypass or downgrade::Kernel panic::Traffic flood::B::Poor MFA is exploitable.
+52::Why identify high-value accounts?::They hide users::They unlock broad access::They encrypt data::They block pivoting::B::Admins matter.
+53::What does harvesting API tokens allow?::Nothing::Service impersonation::Kernel crash::Firewall bypass::B::Tokens grant access.
+54::Why inspect PowerShell history?::It is empty::It may leak credentials::It encrypts scripts::It hides activity::B::History leaks secrets.
+55::Why check Docker images?::They hide containers::They may contain secrets::They encrypt layers::They block pivoting::B::Images leak creds.
+56::What does exploiting misconfigured printers allow?::Nothing::SYSTEM execution::Kernel panic::Firewall bypass::B::Printer services are privileged.
+57::Why validate escalation paths?::Waste time::Mistakes can lock you out::Hide activity::Encrypt exploits::B::Careless steps break access.
+58::What does exploiting weak service isolation allow?::Secure design::Cross-service privilege escalation::Encrypted services::No impact::B::Poor isolation enables pivoting.
+59::Why avoid over-exploitation?::It is forbidden::It increases instability and risk::It hides activity::It speeds access::B::Control > aggression.
+60::What defines OSCP success?::Using many tools::Methodical, reliable compromise with documentation::Speed::Automation-first mindset::B::OSCP rewards disciplined methodology.
+61::You gain access to a low-privilege Linux shell. What should you do first?::Install persistence::Enumerate privileges and environment::Exploit kernel::Delete logs::B::Understanding current privileges guides safe escalation.
+62::Why is it important to check for writable /etc/profile?::It hides credentials::It allows code execution at shell startup::It encrypts logs::It disables sudo::B::Writable profiles execute code for every user login.
+63::What is the risk of misconfigured Docker containers?::Nothing::Container escape or host compromise::Only network issues::Encrypted data only::B::Docker misconfigs can allow root-equivalent access.
+64::Why check for NFS shares with no_root_squash?::It hides files::It may allow root access on client::It encrypts network traffic::It disables services::B::No_root_squash grants elevated privileges.
+65::What does harvesting Windows Vault credentials allow?::Nothing::Access to stored passwords::Kernel crash::Network flood::B::Vault stores user and system credentials.
+66::Why validate reverse shell connectivity before escalation?::Optional::Unstable shells may fail commands::It hides activity::It blocks reporting::B::Stable shell needed for reliable operations.
+67::You find a writable service binary. What is the correct action?::Ignore it::Replace binary for SYSTEM execution::Change permissions::Install rootkit::B::Writable service binaries are classic escalation vectors.
+68::Why should internal DNS be enumerated post-exploitation?::It replaces routing::It reveals reachable hosts::It encrypts traffic::It blocks pivoting::B::DNS reveals internal network structure.
+69::What does exploiting unquoted Windows service paths allow?::Nothing::Binary hijacking for SYSTEM::Firewall bypass::Kernel crash::B::Unquoted paths execute attacker-supplied binaries.
+70::Why is it important to enumerate running services?::They hide activity::They reveal processes with elevated privileges::They encrypt memory::They block access::B::Privileged services are escalation opportunities.
+71::What does pivoting with SSH allow?::Firewall bypass::Routing internal traffic securely::Kernel exploit::Password cracking::B::SSH tunnels forward traffic internally.
+72::Why is collecting proof-of-access mandatory in OSCP?::Optional::Required for scoring and reporting::It hides activity::It speeds exploitation::B::Proof supports exam reporting.
+73::What does harvesting CI/CD credentials allow?::Nothing::Access to automation and deployments::Kernel panic::Firewall bypass::B::CI/CD pipelines contain deploy secrets.
+74::Why enumerate cron jobs on Linux?::They hide logs::They may run scripts as root::They encrypt backups::They block escalation::B::Cron jobs provide automated execution paths.
+75::What does SeBackupPrivilege enable on Windows?::Nothing::Reading files regardless of ACLs::Kernel crash::Network scanning::B::Backup privilege bypasses normal permissions.
+76::Why check PowerShell execution policy?::It hides scripts::It may block malicious commands::It encrypts files::It disables logs::B::Execution policy affects payloads.
+77::What does harvesting SSH agent keys allow?::Nothing::Access to systems trusting the agent::Kernel panic::Firewall bypass::B::Forwarded agents enable lateral movement.
+78::Why inspect home directories of privileged users?::They are empty::They may contain sensitive configs or credentials::They encrypt files::They block access::B::Home directories are common credential storage.
+79::What does exploiting writable /usr/local/bin allow?::Nothing::PATH hijacking for privilege escalation::Kernel crash::Firewall bypass::B::Common directory for binaries in PATH.
+80::Why check Docker group membership?::Cosmetic::Root-equivalent host access::It hides containers::It encrypts traffic::B::Docker group membership grants effective root access.
+81::What does harvesting Redis credentials allow?::Nothing::Access and remote command execution::Kernel panic::Firewall bypass::B::Redis misconfigurations often expose root commands.
+82::Why enumerate local Windows admins?::They hide users::They are prime escalation targets::They encrypt access::They block pivoting::B::Admins provide high-value access.
+83::What does exploiting AlwaysInstallElevated allow?::Nothing::Privilege escalation via MSI installation::Kernel crash::Firewall bypass::B::Misconfigured Windows policy executes MSI as SYSTEM.
+84::Why check environment variables post-exploitation?::They hide activity::They may contain secrets or influence execution::They encrypt commands::They block escalation::B::Environment variables control behavior and may leak creds.
+85::What does exploiting writable /etc/sudoers.d allow?::Nothing::Manipulation of sudo rules::Kernel crash::Network pivoting::B::Sudoers control defines privilege boundaries.
+86::Why enumerate internal web applications?::They hide traffic::They are often less secure and expose data::They encrypt logs::They block scanning::B::Internal apps provide softer targets.
+87::What does harvesting database credentials allow?::Nothing::Direct access to databases and applications::Kernel panic::Firewall bypass::B::DB credentials unlock data and operations.
+88::Why check scheduled tasks in Windows?::They hide activity::They may execute as SYSTEM::They encrypt logs::They block access::B::Tasks provide automated execution paths.
+89::What does exploiting writable logrotate configs allow?::Nothing::Command execution as root::Kernel panic::Firewall bypass::B::Logrotate scripts run with elevated privileges.
+90::Why document all post-exploitation actions?::Optional::Supports reproducibility and exam reporting::It hides activity::It speeds pivoting::B::Documentation is required for OSCP scoring.
+91::What does exploiting weak ACLs on Linux scripts allow?::Read-only access::Command execution when scripts run::Network scanning::Kernel crash::B::ACLs define file access and execution.
+92::Why analyze network routing tables post-exploitation?::They hide hosts::They reveal reachable networks for pivoting::They encrypt paths::They block access::B::Routing defines scope for lateral movement.
+93::What does exploiting writable backup scripts allow?::Nothing::Code execution during backup runs::Kernel panic::Firewall bypass::B::Backups often run with elevated privileges.
+94::Why inspect Windows service recovery options?::They hide services::Recovery commands may run as SYSTEM::They encrypt logs::They block escalation::B::Misconfigured recovery options provide escalation paths.
+95::What does harvesting LDAP credentials allow?::Nothing::Directory-wide authentication abuse::Kernel crash::Network flood::B::LDAP stores identity information.
+96::Why inspect browser extensions?::They hide malware::They may store API tokens or credentials::They encrypt data::They block access::B::Extensions often store secrets.
+97::What does exploiting weak Kerberos delegation allow?::Nothing::Domain-level privilege escalation::Kernel crash::Network flood::B::Delegation misconfigurations are critical.
+98::Why gather MAC addresses?::Cosmetic::Identify devices and vendors::Encrypt traffic::Block pivoting::B::MACs help map network assets.
+99::What does exploiting misconfigured Kubernetes clusters allow?::Nothing::Cluster-wide access and secrets::Kernel panic::Firewall bypass::B::Kubernetes misconfigurations are high impact.
+100::What defines strong OSCP post-exploitation skill?::Tool usage only::Controlled expansion of access with documentation::Speed::Automation-first mindset::B::Disciplined methodology is key.

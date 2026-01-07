@@ -1,0 +1,100 @@
+1::What is the PRIMARY objective of privilege escalation?::Persistence::Gaining higher privileges than initially obtained::Lateral movement::Evading detection::B::Privilege escalation focuses on moving from limited access to higher privileges.
+2::Why is enumeration critical before privilege escalation?::It replaces exploits::It identifies misconfigurations and attack paths::It hides activity::It speeds exploitation::B::Escalation depends on understanding system weaknesses.
+3::Which Linux file permission allows execution with owner privileges?::Sticky bit::SUID bit::SGID bit::ACL::B::SUID executes binaries with file owner privileges.
+4::Why are SUID binaries dangerous?::They expose passwords::They may execute attacker-controlled code as root::They disable logging::They encrypt data::B::Improper SUID binaries often lead to escalation.
+5::What should you check FIRST after obtaining a shell?::Network routes::Current user privileges::Firewall rules::Kernel source code::B::Understanding current access defines escalation strategy.
+6::Why is writable /etc/passwd dangerous?::It leaks hashes only::It allows adding root users::It disables authentication::It hides logs::B::Modifying passwd can grant root access.
+7::What does sudo -l reveal?::Kernel version::Allowed commands for escalation::Firewall rules::Running services::B::sudo permissions are common escalation paths.
+8::Why are wildcard sudo rules risky?::They encrypt input::They allow argument injection::They disable sudo::They hide logs::B::Wildcards enable command abuse.
+9::What Linux misconfiguration allows escalation without exploits?::Kernel panic::Weak file permissions::Strong passwords::Firewall rules::B::Misconfigurations are OSCP-favored.
+10::Why are cron jobs important in escalation?::They encrypt data::They run scheduled commands often as root::They block services::They hide logs::B::Writable cron scripts enable escalation.
+11::What does PATH hijacking exploit?::Kernel memory::Command resolution order::Firewall routing::User authentication::B::PATH determines executed binaries.
+12::Why check for writable directories in PATH?::They are cosmetic::They enable binary replacement::They hide files::They encrypt commands::B::Writable PATH allows hijacking.
+13::What does exploiting LD_PRELOAD allow?::Kernel panic::Injecting malicious libraries::Password cracking::Network pivoting::B::LD_PRELOAD forces loading attacker libraries.
+14::Why might LD_PRELOAD fail?::It is patched::SUID binaries ignore it::It requires root::It hides activity::B::SUID ignores LD_PRELOAD for safety.
+15::What is the risk of writable /etc/sudoers.d files?::No risk::Full sudo rule manipulation::Log deletion::Kernel crash::B::Sudoers control privileges.
+16::Why enumerate running processes?::They hide exploits::They reveal services running as root::They encrypt memory::They slow the system::B::Root processes often expose escalation vectors.
+17::What does exploiting weak file ownership allow?::Read-only access::Code execution on execution::Kernel access::Network scanning::B::Ownership allows modification.
+18::Why is kernel version important?::It reveals passwords::It determines exploit availability::It hides logs::It disables SELinux::B::Kernel exploits are version-specific.
+19::Why avoid kernel exploits unless necessary?::They are banned::They risk system crashes::They hide logs::They encrypt traffic::B::Kernel crashes can lose exam access.
+20::What Linux capability can replace SUID risks?::cap_net_raw::cap_setuid::cap_sys_ptrace::cap_sys_admin::B::cap_setuid allows UID change.
+21::Why check for Docker group membership?::It is cosmetic::It grants root-equivalent access::It blocks escalation::It encrypts files::B::Docker group controls daemon.
+22::What does mounting filesystems allow in escalation?::Firewall bypass::Access to sensitive files::Kernel crash::Password cracking::B::Mounts expose host data.
+23::Why check for NFS misconfigurations?::They hide services::They may allow root squash bypass::They encrypt data::They disable users::B::NFS misconfigs enable root writes.
+24::What does exploiting writable logrotate configs allow?::Log deletion only::Command execution::Network scanning::Kernel access::B::Logrotate runs scripts as root.
+25::Why inspect /etc/crontab permissions?::They hide users::They may allow script modification::They encrypt tasks::They disable cron::B::Writable cron enables escalation.
+26::What Windows privilege allows debugging processes?::SeBackupPrivilege::SeDebugPrivilege::SeShutdownPrivilege::SeLoadDriverPrivilege::B::Debug allows code injection.
+27::Why is SeImpersonatePrivilege dangerous?::It hides activity::It allows token impersonation attacks::It encrypts memory::It disables UAC::B::Impersonation enables SYSTEM access.
+28::What does exploiting weak Windows services allow?::Network scanning::Service binary replacement::Kernel panic::Password reuse::B::Writable service paths allow escalation.
+29::Why check service permissions in Windows?::They hide services::Misconfigured ACLs allow escalation::They encrypt binaries::They disable services::B::ACL misconfigs are common.
+30::What does exploiting unquoted service paths allow?::Nothing::Binary hijacking::Firewall bypass::Memory corruption::B::Spaces cause execution ambiguity.
+31::Why check scheduled tasks in Windows?::They hide logs::They may run with SYSTEM privileges::They encrypt files::They block execution::B::Writable tasks enable escalation.
+32::What Windows registry key often stores service paths?::HKCU::HKLM\SYSTEM\CurrentControlSet\Services::HKCR::HKU::B::Services stored in HKLM.
+33::Why is writable Program Files directory dangerous?::It is normal::It allows replacing service binaries::It hides malware::It encrypts executables::B::Services often execute from Program Files.
+34::What does exploiting AlwaysInstallElevated allow?::User access only::SYSTEM-level MSI execution::Firewall bypass::Network pivoting::B::Misconfig allows MSI escalation.
+35::Why check environment variables on Windows?::They are encrypted::They may expose sensitive paths or creds::They hide logs::They block execution::B::Variables influence execution.
+36::What does exploiting weak DLL search order allow?::Nothing::DLL hijacking::Kernel access::Firewall bypass::B::Windows loads DLLs in predictable order.
+37::Why are writable directories in PATH dangerous on Windows?::They are ignored::They allow DLL or EXE hijacking::They encrypt binaries::They hide files::B::PATH order controls execution.
+38::What does exploiting registry autoruns allow?::Nothing::Persistent privilege escalation::Firewall bypass::Kernel crash::B::Autoruns execute on startup.
+39::Why check for plaintext credentials in registry?::They are fake::They may grant higher privileges::They encrypt memory::They disable services::B::Credentials often reused.
+40::What does exploiting weak file ACLs allow?::Read-only access::Modification or execution::Kernel exploitation::Network pivoting::B::ACLs define access.
+41::Why is UAC not a security boundary?::It encrypts privileges::It is a convenience mechanism::It disables admin rights::It blocks SYSTEM::B::UAC does not stop admins.
+42::What does bypassing UAC provide?::SYSTEM access always::High-integrity admin shell::Kernel access::Network scanning::B::UAC bypass elevates integrity.
+43::Why check token privileges on Windows?::They hide activity::They reveal escalation opportunities::They encrypt memory::They disable services::B::Tokens define capabilities.
+44::What does exploiting SeBackupPrivilege allow?::Firewall bypass::Reading sensitive files::Kernel access::Network pivoting::B::Backup privilege bypasses ACLs.
+45::Why is writable temp directory risky?::It is safe::Services may execute files from it::It hides logs::It encrypts files::B::Temp execution is dangerous.
+46::What does exploiting MSI repair functions allow?::Nothing::Privilege escalation via installer repair::Network scanning::Kernel crash::B::Repair runs as SYSTEM.
+47::Why enumerate installed software?::It hides exploits::It reveals vulnerable components::It encrypts binaries::It disables services::B::Old software is exploitable.
+48::What does exploiting weak service recovery options allow?::Service restart only::Command execution on failure::Firewall bypass::Kernel crash::B::Recovery commands run as SYSTEM.
+49::Why check PowerShell history?::It is empty::It may contain credentials or commands::It encrypts scripts::It hides activity::B::History leaks secrets.
+50::What does exploiting writable Winlogon registry keys allow?::Nothing::Execution at login with SYSTEM rights::Firewall bypass::Kernel access::B::Winlogon controls logon execution.
+51::Why check mounted drives on Linux?::They hide files::They may expose sensitive data::They encrypt storage::They disable execution::B::Mounts reveal secrets.
+52::What does exploiting weak SSH key permissions allow?::Nothing::Login as another user::Firewall bypass::Kernel exploit::B::Keys grant access.
+53::Why check sudo version?::It hides exploits::It may have known vulnerabilities::It encrypts commands::It blocks escalation::B::Old sudo versions are exploitable.
+54::What does exploiting writable /etc/profile allow?::Nothing::Persistent command execution::Network scanning::Kernel access::B::Profile runs on shell startup.
+55::Why inspect backup files?::They are useless::They may contain credentials::They encrypt data::They hide logs::B::Backups leak secrets.
+56::What does exploiting insecure NFS exports allow?::Nothing::Remote root access::Kernel crash::Network scanning::B::No_root_squash is dangerous.
+57::Why check for SSH agent forwarding?::It hides keys::It allows key abuse for escalation::It encrypts traffic::It disables auth::B::Forwarded agents can be abused.
+58::What does exploiting misconfigured polkit allow?::Nothing::Passwordless root escalation::Kernel crash::Network pivoting::B::Polkit misconfigs are powerful.
+59::Why inspect sudoers defaults?::They are cosmetic::Defaults affect environment handling::They hide logs::They encrypt sudo::B::Defaults influence exploitability.
+60::What does exploiting writable systemd service files allow?::Nothing::Root code execution::Firewall bypass::Kernel panic::B::Systemd runs as root.
+61::Why analyze group memberships?::They hide users::Groups grant additional privileges::They encrypt access::They block escalation::B::Groups define access.
+62::What does exploiting writable bashrc allow?::Nothing::Command execution on shell start::Network scanning::Kernel access::B::bashrc executes commands.
+63::Why check for stored credentials in browsers?::They are encrypted::They may grant admin access::They hide logs::They block escalation::B::Credentials are reused.
+64::What does exploiting weak task permissions allow?::Nothing::SYSTEM command execution::Firewall bypass::Kernel crash::B::Tasks often run privileged.
+65::Why enumerate local administrators?::They hide accounts::They reveal escalation targets::They encrypt groups::They disable UAC::B::Admins are escalation goals.
+66::What does exploiting misconfigured WMI allow?::Nothing::Remote command execution::Firewall bypass::Kernel panic::B::WMI runs with high privileges.
+67::Why check PowerShell execution policy?::It blocks execution::It influences script execution::It encrypts scripts::It hides activity::B::Policy affects payloads.
+68::What does exploiting weak SMB shares allow?::Nothing::Access to sensitive files::Kernel access::Network scanning::B::Shares leak data.
+69::Why inspect /var/log permissions?::They hide logs::Writable logs enable exploitation::They encrypt data::They disable logging::B::Log execution vectors exist.
+70::What does exploiting writable Python modules allow?::Nothing::Code execution when imported::Firewall bypass::Kernel crash::B::Python loads modules dynamically.
+71::Why check Windows credential manager?::It is empty::It stores reusable credentials::It encrypts memory::It hides accounts::B::Credentials grant access.
+72::What does exploiting startup folder allow?::Nothing::Code execution on boot/login::Firewall bypass::Kernel access::B::Startup runs automatically.
+73::Why inspect sudo environment handling?::It hides activity::Preserved variables enable exploits::It encrypts execution::It blocks escalation::B::Environment matters.
+74::What does exploiting writable PAM configs allow?::Nothing::Authentication bypass::Kernel crash::Network scanning::B::PAM controls auth.
+75::Why enumerate LXD group membership?::It is cosmetic::It grants container root access::It encrypts containers::It hides activity::B::LXD group = root.
+76::What does exploiting weak file capabilities allow?::Nothing::Privilege escalation without SUID::Kernel panic::Network scanning::B::Capabilities grant power.
+77::Why check backup scripts permissions?::They are safe::They may run as root::They encrypt backups::They hide activity::B::Scripts often execute automatically.
+78::What does exploiting misconfigured FTP allow?::Nothing::Access to sensitive files::Kernel access::Firewall bypass::B::FTP misconfigs leak data.
+79::Why inspect sudoers include files?::They are ignored::They define additional rules::They encrypt sudo::They hide logs::B::Includes expand sudo rules.
+80::What does exploiting weak RDP settings allow?::Nothing::Credential theft or admin access::Kernel panic::Network flooding::B::RDP often misconfigured.
+81::Why analyze home directory permissions?::They are private::Others may read sensitive files::They encrypt data::They hide activity::B::Home files leak secrets.
+82::What does exploiting misconfigured printers allow?::Nothing::SYSTEM command execution::Firewall bypass::Kernel crash::B::Print services run privileged.
+83::Why check for stored SSH keys?::They are useless::They allow user impersonation::They encrypt access::They hide activity::B::Keys grant login.
+84::What does exploiting writable /usr/local/bin allow?::Nothing::Binary hijacking::Kernel crash::Firewall bypass::B::Common PATH directory.
+85::Why inspect sudo timestamp behavior?::It hides commands::Cached auth may allow reuse::It encrypts sudo::It disables escalation::B::Timestamps affect sudo use.
+86::What does exploiting misconfigured IIS allow?::Nothing::Web-based privilege escalation::Kernel panic::Network scanning::B::IIS runs as SYSTEM.
+87::Why check Windows event logs?::They hide activity::They reveal service failures and paths::They encrypt data::They block execution::B::Logs reveal clues.
+88::What does exploiting writable PowerShell profiles allow?::Nothing::Code execution on shell start::Firewall bypass::Kernel crash::B::Profiles auto-execute.
+89::Why inspect service account permissions?::They are limited::They may have excessive rights::They encrypt credentials::They hide activity::B::Service accounts often overprivileged.
+90::What does exploiting weak Kerberos delegation allow?::Nothing::Domain-level privilege escalation::Kernel panic::Network flooding::B::Delegation misconfigs are critical.
+91::Why check sudo secure_path?::It hides binaries::It affects PATH hijacking viability::It encrypts sudo::It blocks escalation::B::secure_path limits hijacking.
+92::What does exploiting writable backup agents allow?::Nothing::Execution during backups::Firewall bypass::Kernel crash::B::Agents run as root.
+93::Why enumerate local policies on Windows?::They hide users::They control security boundaries::They encrypt policies::They disable services::B::Policies define privileges.
+94::What does exploiting misconfigured WSUS allow?::Nothing::SYSTEM code execution::Firewall bypass::Kernel crash::B::WSUS runs privileged.
+95::Why inspect SSH config files?::They are empty::They may allow root login or agent forwarding::They encrypt traffic::They hide activity::B::Config weakens security.
+96::What does exploiting writable Ansible playbooks allow?::Nothing::Remote root execution::Firewall bypass::Kernel crash::B::Playbooks execute commands.
+97::Why check system-wide environment files?::They are ignored::They affect all users::They encrypt execution::They hide activity::B::Global configs matter.
+98::What does exploiting misconfigured backup permissions allow?::Nothing::Reading sensitive files::Kernel panic::Network scanning::B::Backups leak data.
+99::Why validate escalation paths carefully?::It wastes time::Mistakes can lock you out::It hides logs::It encrypts exploits::B::Careless escalation breaks access.
+100::What defines strong OSCP privilege escalation skill?::Tool usage::Systematic enumeration and safe escalation::Speed::Automation-first mindset::B::OSCP rewards methodical control.
